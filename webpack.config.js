@@ -4,7 +4,7 @@ const {CheckerPlugin} = require('awesome-typescript-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
 
   entry: {
     index: './src/index.tsx',
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
 

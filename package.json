@@ -8,6 +8,9 @@
     "build": "webpack",
     "start": "webpack-dev-server"
   },
+  "files": [
+    "./dist/index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FrankFang/PromiseComponent.git"
