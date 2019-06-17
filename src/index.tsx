@@ -32,5 +32,6 @@ function promiseComponent<P, T>({promiser, render}: Props<P, T>) {
       <>{render({props, run, ...state})}</>
     );
   };
-};
+}
+
 export default promiseComponent;
