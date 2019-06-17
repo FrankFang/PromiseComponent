@@ -11,8 +11,6 @@ type Resource = Array<{ id: number, name: string }>
 const ComponentOne = promiseComponent<{}, Resource | Error>({
   promiser: () => ajax(),
   render({props, status, result, run}) {
-    console.log('result');
-    console.log(result);
     switch (status) {
       case 'initial':
         return (<>
