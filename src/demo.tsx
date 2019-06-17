@@ -16,25 +16,25 @@ const ComponentOne = promiseComponent<{}, Resource | Error>({
     switch (status) {
       case 'initial':
         return (<>
-          <button onClick={run}>搜索</button>
+          <button onClick={run}>search</button>
         </>);
       case 'pending':
         return (<>
-          <button disabled>搜索</button>
-          <span className="loading"/>
+          <button disabled>search</button>
+          <span>loading...</span>
         </>);
       case 'fulfilled':
         return (<>
-          <button onClick={run}>搜索</button>
+          <button onClick={run}>search</button>
           <div>
-            成功 {JSON.stringify(result)}
+            succeed: {JSON.stringify(result)}
           </div>
         </>);
       case 'rejected':
         return (<>
-          <button onClick={run}>搜索</button>
+          <button onClick={run}>search</button>
           <div>
-            失败 {(result as Error).message}
+            failed: {(result as Error).message}
           </div>
         </>);
     }
