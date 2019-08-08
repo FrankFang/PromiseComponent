@@ -10,32 +10,26 @@ type Resource = Array<{ id: number, name: string }>
 
 const ComponentOne = promiseComponent<{}, Resource | Error>({
   promiser: () => ajax(),
-  render({props, status, result, run}) {
-    switch (status) {
-      case 'initial':
-        return (<>
-          <button onClick={run}>search</button>
-        </>);
-      case 'pending':
-        return (<>
-          <button disabled>search</button>
-          <span>loading...</span>
-        </>);
-      case 'fulfilled':
-        return (<>
-          <button onClick={run}>search</button>
-          <div>
-            succeed: {JSON.stringify(result)}
-          </div>
-        </>);
-      case 'rejected':
-        return (<>
-          <button onClick={run}>search</button>
-          <div>
-            failed: {(result as Error).message}
-          </div>
-        </>);
-    }
+  displayName: 'ComponentOne',
+  renderFulfilled({result}) {
+    console.log(result);
+    return <div>
+      请求结果一定存在，因为 result 不为空
+    </div>;
+  },
+  // 可选
+  renderRejected({error}) {
+    return <div>
+      请求失败
+    </div>;
+  },
+  // 可选
+  renderInitial() {
+    return <div>最开始的样子</div>;
+  },
+  // 可选
+  renderPending() {
+    return <div>加载中</div>;
   }
 });
 
